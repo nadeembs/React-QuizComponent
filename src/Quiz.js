@@ -18,9 +18,15 @@ class Quiz extends Component {
 
                 {isQuizEnd ?
                     <QuizEnd /> :
-                    <QuizQuestion quiz_question={quizData.quiz_questions[this.state.quiz_position - 1]} />}
+                    <QuizQuestion 
+                        quiz_question={quizData.quiz_questions[this.state.quiz_position - 1]} 
+                        showNextQuestionHandler={this.showNextQuestion.bind(this)} />}
             </div>
         );
+    }
+    showNextQuestion(){
+        var pos =this.state.quiz_position += 1;
+        this.setState({quiz_position: pos});
     }
 }
 export default Quiz;
